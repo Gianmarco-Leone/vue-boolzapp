@@ -195,9 +195,14 @@ const app = Vue.createApp({
           ],
         },
       ],
+      activeContact: 0,
     };
   },
-  methods: {},
+  methods: {
+    changeContact(index) {
+      this.activeContact = index;
+    },
+  },
 });
 
 app.mount("#app");

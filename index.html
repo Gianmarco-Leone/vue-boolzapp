@@ -95,6 +95,8 @@
             <div
               v-for="(contact,index) in contacts"
               class="contact-id d-flex p-2 border-top"
+              @click="changeContact(index)"
+              :class="(index == activeContact) ? 'bg-lightgrey' : '' "
             >
               <img
                 :src="'./img/avatar' + contact.avatar + '.jpg'"
@@ -138,7 +140,7 @@
               <div class="row justify-content-center pt-4">
                 <div class="col-10 d-flex flex-column">
                   <div
-                    v-for="message in contacts[0].messages"
+                    v-for="message in contacts[activeContact].messages"
                     class="message rounded"
                     :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
                   >

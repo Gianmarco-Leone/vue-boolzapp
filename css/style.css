@@ -28,6 +28,10 @@ img {
   max-height: 100%;
 }
 
+.bg-lightgrey {
+  background-color: #eee;
+}
+
 /* NAV */
 nav {
   height: 60px;
