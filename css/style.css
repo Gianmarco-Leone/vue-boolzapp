@@ -140,7 +140,7 @@ CHAT SIDE
 #chat {
   height: calc(100% - 140px);
   background-image: url(../img/mine.jpg);
-  background-size: cover;
+  background-size: contain;
   overflow-y: scroll;
 }
 

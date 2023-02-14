@@ -137,18 +137,22 @@
             <div class="container">
               <div class="row justify-content-center pt-4">
                 <div class="col-10 d-flex flex-column">
-                  <div class="message message-sent rounded">
-                    <span>Hai portato a spasso il cane?</span>
-                    <span class="time-message">15:30</span>
+                  <div
+                    v-for="message in contacts[0].messages"
+                    class="message rounded"
+                    :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
+                  >
+                    <span>{{message.text}}</span>
+                    <span class="time-message">{{message.date}}</span>
                   </div>
-                  <div class="message message-sent rounded">
+                  <!-- <div class="message message-sent rounded">
                     Ricordati di stendere i panni
                     <span class="time-message">15:50</span>
                   </div>
                   <div class="message message-received rounded">
                     Tutto fatto!
                     <span class="time-message">15:15</span>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
