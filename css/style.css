@@ -1,0 +1,186 @@
+/***********
+GENERICS
+***********/
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #019789 0%,
+    #019789 15%,
+    #d9dbd5 15%,
+    #d9dbd5 100%
+  );
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 80%;
+  height: 90%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* NAV */
+nav {
+  height: 60px;
+  background-color: #eaeaea;
+}
+
+.user-id,
+.contact-id {
+  height: 100%;
+}
+
+nav img {
+  border-radius: 50px;
+  margin-right: 0.5rem;
+}
+
+.nav-icons {
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/***********
+COMMAND SIDE
+***********/
+#commands_side {
+  width: 40%;
+  height: 100%;
+}
+
+/* NOTIFICHE */
+#notifications {
+  background-color: #8edafc;
+  height: 70px;
+}
+
+#notifications .notifications-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  color: #8edafc;
+  background-color: #fff;
+}
+
+#notifications .notifications-text span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#notifications .notifications-text a {
+  font-size: 0.7rem;
+}
+
+/* RICERCA */
+#search {
+  height: 40px;
+}
+
+/* CONTACTS */
+#contacts {
+  height: calc(100% - 170px);
+  overflow-y: scroll;
+}
+
+#contacts .contact-id {
+  height: 60px;
+
+  position: relative;
+}
+
+.contact-id img {
+  border-radius: 50px;
+  margin-right: 0.5rem;
+}
+
+.contact-id span.last-message {
+  font-size: 0.7rem;
+  color: #aaa;
+  font-weight: 600;
+}
+
+.contact-id span.last-login {
+  font-size: 0.7rem;
+  color: #aaa;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/***********
+CHAT SIDE
+***********/
+#chat_side {
+  width: 60%;
+  height: 100%;
+}
+
+/* NAV */
+#chat_side nav .nav-text span.text-muted {
+  font-size: 0.7rem;
+}
+
+/* CHAT */
+#chat {
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+#chat .col-10 .message {
+  width: 40%;
+  padding: 0.5rem;
+  padding-bottom: 1rem;
+  margin: 1rem 0;
+
+  position: relative;
+}
+
+.message .time-message {
+  font-size: 0.5rem;
+  color: #aaa;
+
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+}
+
+#chat .message-sent {
+  background-color: #d5f9ba;
+  align-self: flex-end;
+}
+
+#chat .message-received {
+  background-color: #fff;
+}
+
+/* INPUT MESSAGGIO */
+#input_message {
+  height: 80px;
+  background-color: #f3eeea;
+}
+
+#input_message .input-message-icon {
+  display: flex;
+  align-items: center;
+  color: #666;
+  cursor: pointer;
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+}
