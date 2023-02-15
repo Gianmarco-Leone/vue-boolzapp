@@ -35,6 +35,10 @@ ul {
   list-style: none;
 }
 
+ul li {
+  display: flex;
+}
+
 /* NAV */
 nav {
   height: 60px;

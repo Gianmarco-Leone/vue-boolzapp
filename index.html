@@ -89,7 +89,7 @@
               aria-label="Cerca o inizia una nuova chat"
               aria-describedby="button-addon1"
               v-model="inputTextSearch"
-              @keydown.enter="searchContacts()"
+              @keyUp="searchContacts()"
             />
           </div>
         </div>
@@ -99,10 +99,10 @@
         <ul id="contacts" class="bg-white p-0">
           <li
             v-for="(contact,index) in contacts"
-            v-show="contact.visible"
-            class="contact-id d-flex p-2 border-top"
             @click="changeContact(index)"
+            class="contact-id p-2 border-top"
             :class="(index == activeContact) ? 'active' : '' "
+            v-show="contact.visible"
           >
             <img
               :src="'./img/avatar' + contact.avatar + '.jpg'"
@@ -161,14 +161,6 @@
                   <span>{{message.text}}</span>
                   <span class="time-message">{{message.date}}</span>
                 </div>
-                <!-- <div class="message message-sent rounded">
-                    Ricordati di stendere i panni
-                    <span class="time-message">15:50</span>
-                  </div>
-                  <div class="message message-received rounded">
-                    Tutto fatto!
-                    <span class="time-message">15:15</span>
-                  </div> -->
               </div>
             </div>
           </div>

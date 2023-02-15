@@ -261,7 +261,6 @@ const app = Vue.createApp({
             .includes(this.inputTextSearch.toLowerCase())
         ) {
           contact.visible = true;
-          console.log(contact);
         } else {
           contact.visible = false;
         }
