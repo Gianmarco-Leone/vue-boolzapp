@@ -209,6 +209,7 @@ const app = Vue.createApp({
     enterMessage() {
       // Creo variabile nuovo messaggio
       let newEnterMessage = {
+        date: DateTime.now(),
         text: this.newEnterMessageText,
         status: "sent",
       };
