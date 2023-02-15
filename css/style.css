@@ -61,6 +61,10 @@ nav img {
   cursor: pointer;
 }
 
+.nav-icons i:hover {
+  color: #555;
+}
+
 /***********
 COMMAND SIDE
 ***********/
@@ -196,7 +200,6 @@ CHAT SIDE
 }
 
 .my-dropdown {
-  /* display: none; */
   position: absolute;
   z-index: 1;
   right: -30px;
@@ -225,4 +228,8 @@ CHAT SIDE
   cursor: pointer;
   padding: 0 1.5rem;
   font-size: 1.2rem;
+}
+
+#input_message .input-message-icon i:hover {
+  color: #555;
 }
