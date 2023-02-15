@@ -29,6 +29,9 @@
 
 // ? SVOLGIMENTO:
 
+// Dichiaro variabile globale per Luxon
+const dt = luxon.DateTime;
+
 const app = Vue.createApp({
   data() {
     return {
@@ -207,26 +210,43 @@ const app = Vue.createApp({
 
     // **MILESTONE 3**
     enterMessage() {
+      // Creo variabile per recuperare questo esatto momento
+      let now = dt
+        .now()
+        .setLocale("it")
+        .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
       // Creo variabile nuovo messaggio
       let newEnterMessage = {
-        date: DateTime.now(),
+        date: now,
         text: this.newEnterMessageText,
         status: "sent",
       };
+
       // Aggiungo il nuovo messaggio all'array dei messaggi del contatto solo se nell'input c'è scritto qualcosa
       if (this.newEnterMessageText.length > 0) {
         this.contacts[this.activeContact].messages.push(newEnterMessage);
+
         // Creo funzione per la risposta del contatto dopo un secondo
         setTimeout(() => {
+          // Aggiorno variabile
+          now = dt
+            .now()
+            .setLocale("it")
+            .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
           // Creo variabile nuovo messaggio
           const newReceivedMessage = {
+            date: now,
             text: "Ok",
             status: "received",
           };
+
           // Aggiungo il nuovo messaggio all'array dei messaggi del contatto
           this.contacts[this.activeContact].messages.push(newReceivedMessage);
         }, 1000);
       }
+
       // Svuoto l'input dove scrivere il messaggio
       this.newEnterMessageText = "";
     },

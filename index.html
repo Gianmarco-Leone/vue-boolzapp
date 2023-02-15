@@ -39,128 +39,125 @@
   </head>
 
   <body>
-    <div class="app-container d-flex align-items-center justify-content-center">
-      <!-- INIZIO APP VUE -->
-      <div id="app" class="d-flex">
-        <!-- INIZIO LEFT SIDE -->
-        <div id="commands_side">
-          <!-- INIZIO NAV UTENTE -->
-          <nav
-            class="d-flex justify-content-between align-items-center border-end border-3"
-          >
-            <div class="user-id p-2">
-              <img src="./img/avatar_io.jpg" alt="User image" />
-              <span>Sofia</span>
-            </div>
-            <div class="nav-icons">
-              <i class="fa-solid fa-circle-notch"></i>
-              <i class="fa-solid fa-message p-3"></i>
-              <i class="fa-solid fa-ellipsis-vertical pe-3"></i>
-            </div>
-          </nav>
-          <!-- FINE NAV UTENTE -->
-
-          <!-- INIZIO NOTIFICHE -->
-          <div id="notifications" class="d-flex p-3">
-            <span class="notifications-icon">
-              <i class="fa-solid fa-bell-slash"></i>
-            </span>
-            <div class="notifications-text ms-2 d-flex flex-column">
-              <span>Ricevi notifiche di nuovi messaggi</span>
-              <a href="#" class="text-muted">Attiva notifiche desktop</a>
-            </div>
+    <!-- INIZIO APP VUE -->
+    <div id="app" class="d-flex">
+      <!-- INIZIO LEFT SIDE -->
+      <div id="commands_side">
+        <!-- INIZIO NAV UTENTE -->
+        <nav
+          class="d-flex justify-content-between align-items-center border-end border-3"
+        >
+          <div class="user-id p-2">
+            <img src="./img/avatar_io.jpg" alt="User image" />
+            <span>Sofia</span>
           </div>
-          <!-- FINE NOTIFICHE -->
-
-          <!-- INIZIO RICERCA CONTATTI -->
-          <div id="search" class="bg-white p-1">
-            <div class="input-group input-group-sm">
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="button-addon1"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Cerca o inizia una nuova chat"
-                aria-label="Cerca o inizia una nuova chat"
-                aria-describedby="button-addon1"
-              />
-            </div>
+          <div class="nav-icons">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message p-3"></i>
+            <i class="fa-solid fa-ellipsis-vertical pe-3"></i>
           </div>
-          <!-- FINE RICERCA CONTATTI -->
+        </nav>
+        <!-- FINE NAV UTENTE -->
 
-          <!-- INIZIO CONTACTS -->
-          <ul id="contacts" class="bg-white p-0">
-            <li
-              v-for="(contact,index) in contacts"
-              class="contact-id d-flex p-2 border-top"
-              @click="changeContact(index)"
-              :class="(index == activeContact) ? 'active' : '' "
-            >
-              <img
-                :src="'./img/avatar' + contact.avatar + '.jpg'"
-                alt="Contact image"
-              />
-              <div class="nav-text d-flex flex-column">
-                <span>{{contact.name}}</span>
-                <span class="last-message">
-                  {{contact.messages.slice(-1)[0].text}}
-                </span>
-              </div>
-              <span class="last-login">
-                {{contact.messages.slice(-1)[0].date}}
-              </span>
-            </li>
-          </ul>
-          <!-- FINE CONTACTS -->
+        <!-- INIZIO NOTIFICHE -->
+        <div id="notifications" class="d-flex p-3">
+          <span class="notifications-icon">
+            <i class="fa-solid fa-bell-slash"></i>
+          </span>
+          <div class="notifications-text ms-2 d-flex flex-column">
+            <span>Ricevi notifiche di nuovi messaggi</span>
+            <a href="#" class="text-muted">Attiva notifiche desktop</a>
+          </div>
         </div>
-        <!-- FINE LEFT SIDE -->
+        <!-- FINE NOTIFICHE -->
 
-        <!-- INIZIO RIGHT SIDE -->
-        <div id="chat_side">
-          <!-- INIZIO NAV CHAT -->
-          <nav
-            class="nav-chat d-flex justify-content-between align-items-center"
-          >
-            <div class="contact-id d-flex p-2">
-              <img
-                :src="'./img/avatar' + contacts[activeContact].avatar + '.jpg'"
-                alt="Contact image"
-              />
-              <div class="nav-text d-flex flex-column">
-                <span>{{contacts[activeContact].name}}</span>
-                <span class="text-muted">
-                  Ultimo accesso il:
-                  {{contacts[activeContact].messages.slice(-1)[0].date}}
-                </span>
-              </div>
-            </div>
-            <div class="nav-icons">
+        <!-- INIZIO RICERCA CONTATTI -->
+        <div id="search" class="bg-white p-1">
+          <div class="input-group input-group-sm">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon1"
+            >
               <i class="fa-solid fa-magnifying-glass"></i>
-              <i class="fa-solid fa-paperclip p-3"></i>
-              <i class="fa-solid fa-ellipsis-vertical pe-3"></i>
-            </div>
-          </nav>
-          <!-- FINE NAV CHAT -->
+            </button>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Cerca o inizia una nuova chat"
+              aria-label="Cerca o inizia una nuova chat"
+              aria-describedby="button-addon1"
+            />
+          </div>
+        </div>
+        <!-- FINE RICERCA CONTATTI -->
 
-          <!-- INIZIO CHAT -->
-          <div id="chat">
-            <div class="container">
-              <div class="row justify-content-center pt-4">
-                <div class="col-10 d-flex flex-column">
-                  <div
-                    v-for="message in contacts[activeContact].messages"
-                    class="message rounded"
-                    :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
-                  >
-                    <span>{{message.text}}</span>
-                    <span class="time-message">{{message.date}}</span>
-                  </div>
-                  <!-- <div class="message message-sent rounded">
+        <!-- INIZIO CONTACTS -->
+        <ul id="contacts" class="bg-white p-0">
+          <li
+            v-for="(contact,index) in contacts"
+            class="contact-id d-flex p-2 border-top"
+            @click="changeContact(index)"
+            :class="(index == activeContact) ? 'active' : '' "
+          >
+            <img
+              :src="'./img/avatar' + contact.avatar + '.jpg'"
+              alt="Contact image"
+            />
+            <div class="nav-text d-flex flex-column">
+              <span>{{contact.name}}</span>
+              <span class="last-message">
+                {{contact.messages.slice(-1)[0].text}}
+              </span>
+            </div>
+            <span class="last-login">
+              {{contact.messages.slice(-1)[0].date}}
+            </span>
+          </li>
+        </ul>
+        <!-- FINE CONTACTS -->
+      </div>
+      <!-- FINE LEFT SIDE -->
+
+      <!-- INIZIO RIGHT SIDE -->
+      <div id="chat_side">
+        <!-- INIZIO NAV CHAT -->
+        <nav class="nav-chat d-flex justify-content-between align-items-center">
+          <div class="contact-id d-flex p-2">
+            <img
+              :src="'./img/avatar' + contacts[activeContact].avatar + '.jpg'"
+              alt="Contact image"
+            />
+            <div class="nav-text d-flex flex-column">
+              <span>{{contacts[activeContact].name}}</span>
+              <span class="text-muted">
+                Ultimo accesso il:
+                {{contacts[activeContact].messages.slice(-1)[0].date}}
+              </span>
+            </div>
+          </div>
+          <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip p-3"></i>
+            <i class="fa-solid fa-ellipsis-vertical pe-3"></i>
+          </div>
+        </nav>
+        <!-- FINE NAV CHAT -->
+
+        <!-- INIZIO CHAT -->
+        <div id="chat">
+          <div class="container">
+            <div class="row justify-content-center pt-4">
+              <div class="col-10 d-flex flex-column">
+                <div
+                  v-for="message in contacts[activeContact].messages"
+                  class="message rounded"
+                  :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
+                >
+                  <span>{{message.text}}</span>
+                  <span class="time-message">{{message.date}}</span>
+                </div>
+                <!-- <div class="message message-sent rounded">
                     Ricordati di stendere i panni
                     <span class="time-message">15:50</span>
                   </div>
@@ -168,35 +165,34 @@
                     Tutto fatto!
                     <span class="time-message">15:15</span>
                   </div> -->
-                </div>
               </div>
             </div>
           </div>
-          <!-- FINE CHAT -->
-
-          <!-- INIZIO INPUT MESSAGGIO -->
-          <div id="input_message" class="d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-message-icon">
-                <i class="fa-regular fa-face-smile"></i>
-              </span>
-              <input
-                type="text"
-                class="form-control rounded"
-                placeholder="Scrivi un messaggio"
-                v-model="newEnterMessageText"
-                @keyup.enter="enterMessage()"
-              />
-              <span class="input-message-icon">
-                <i class="fa-solid fa-microphone"></i>
-              </span>
-            </div>
-          </div>
-          <!-- FINE INPUT MESSAGGIO -->
         </div>
-        <!-- FINE RIGHT SIDE -->
+        <!-- FINE CHAT -->
+
+        <!-- INIZIO INPUT MESSAGGIO -->
+        <div id="input_message" class="d-flex align-items-center">
+          <div class="input-group">
+            <span class="input-message-icon">
+              <i class="fa-regular fa-face-smile"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control rounded"
+              placeholder="Scrivi un messaggio"
+              v-model="newEnterMessageText"
+              @keyup.enter="enterMessage()"
+            />
+            <span class="input-message-icon">
+              <i class="fa-solid fa-microphone"></i>
+            </span>
+          </div>
+        </div>
+        <!-- FINE INPUT MESSAGGIO -->
       </div>
-      <!-- FINE APP VUE -->
+      <!-- FINE RIGHT SIDE -->
     </div>
+    <!-- FINE APP VUE -->
   </body>
 </html>
