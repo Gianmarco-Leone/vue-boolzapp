@@ -200,6 +200,7 @@ const app = Vue.createApp({
       ],
       newEnterMessageText: "",
       activeContact: 0,
+      inputTextSearch: "",
     };
   },
   methods: {
@@ -249,6 +250,22 @@ const app = Vue.createApp({
 
       // Svuoto l'input dove scrivere il messaggio
       this.newEnterMessageText = "";
+    },
+
+    // **MILESTONE 4**
+    searchContacts() {
+      for (contact of this.contacts) {
+        if (
+          contact.name
+            .toLowerCase()
+            .includes(this.inputTextSearch.toLowerCase())
+        ) {
+          contact.visible = true;
+          console.log(contact);
+        } else {
+          contact.visible = false;
+        }
+      }
     },
   },
 });
