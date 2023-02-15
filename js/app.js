@@ -195,6 +195,7 @@ const app = Vue.createApp({
           ],
         },
       ],
+      newEnterMessageText: "",
       activeContact: 0,
     };
   },
@@ -202,6 +203,31 @@ const app = Vue.createApp({
     // **MILESTONE 2**
     changeContact(index) {
       this.activeContact = index;
+    },
+
+    // **MILESTONE 3**
+    enterMessage() {
+      // Creo variabile nuovo messaggio
+      let newEnterMessage = {
+        text: this.newEnterMessageText,
+        status: "sent",
+      };
+      // Aggiungo il nuovo messaggio all'array dei messaggi del contatto solo se nell'input c'è scritto qualcosa
+      if (this.newEnterMessageText.length > 0) {
+        this.contacts[this.activeContact].messages.push(newEnterMessage);
+        // Creo funzione per la risposta del contatto dopo un secondo
+        setTimeout(() => {
+          // Creo variabile nuovo messaggio
+          const newReceivedMessage = {
+            text: "Ok",
+            status: "received",
+          };
+          // Aggiungo il nuovo messaggio all'array dei messaggi del contatto
+          this.contacts[this.activeContact].messages.push(newReceivedMessage);
+        }, 1000);
+      }
+      // Svuoto l'input dove scrivere il messaggio
+      this.newEnterMessageText = "";
     },
   },
 });

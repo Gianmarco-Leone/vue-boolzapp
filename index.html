@@ -181,6 +181,8 @@
                 type="text"
                 class="form-control rounded"
                 placeholder="Scrivi un messaggio"
+                v-model="newEnterMessageText"
+                @keyup.enter="enterMessage()"
               />
               <span class="input-message-icon">
                 <i class="fa-solid fa-microphone"></i>
