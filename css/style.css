@@ -5,11 +5,11 @@ body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(
-    180deg,
+    to bottom,
     #019789 0%,
     #019789 15%,
     #d9dbd5 15%,
-    #d9dbd5 100%
+    #d2dbdb 100%
   );
 }
 
@@ -28,8 +28,12 @@ img {
   max-height: 100%;
 }
 
-.bg-lightgrey {
-  background-color: #eee;
+.active {
+  background-color: #e9ebeb;
+}
+
+ul {
+  list-style: none;
 }
 
 /* NAV */
@@ -149,7 +153,8 @@ CHAT SIDE
 }
 
 #chat .col-10 .message {
-  width: 40%;
+  min-width: 30%;
+  max-width: 70%;
   padding: 0.5rem;
   padding-bottom: 1rem;
   margin: 1rem 0;
@@ -173,6 +178,7 @@ CHAT SIDE
 
 #chat .message-received {
   background-color: #fff;
+  align-self: flex-start;
 }
 
 /* INPUT MESSAGGIO */

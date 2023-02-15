@@ -91,12 +91,12 @@
           <!-- FINE RICERCA CONTATTI -->
 
           <!-- INIZIO CONTACTS -->
-          <div id="contacts" class="bg-white">
-            <div
+          <ul id="contacts" class="bg-white p-0">
+            <li
               v-for="(contact,index) in contacts"
               class="contact-id d-flex p-2 border-top"
               @click="changeContact(index)"
-              :class="(index == activeContact) ? 'bg-lightgrey' : '' "
+              :class="(index == activeContact) ? 'active' : '' "
             >
               <img
                 :src="'./img/avatar' + contact.avatar + '.jpg'"
@@ -104,11 +104,15 @@
               />
               <div class="nav-text d-flex flex-column">
                 <span>{{contact.name}}</span>
-                <span class="last-message">Ultimo messaggio inviato</span>
+                <span class="last-message">
+                  {{contact.messages.slice(-1)[0].text}}
+                </span>
               </div>
-              <span class="last-login">12:00</span>
-            </div>
-          </div>
+              <span class="last-login">
+                {{contact.messages.slice(-1)[0].date}}
+              </span>
+            </li>
+          </ul>
           <!-- FINE CONTACTS -->
         </div>
         <!-- FINE LEFT SIDE -->
@@ -120,10 +124,16 @@
             class="nav-chat d-flex justify-content-between align-items-center"
           >
             <div class="contact-id d-flex p-2">
-              <img src="./img/avatar_1.jpg" alt="Contact image" />
+              <img
+                :src="'./img/avatar' + contacts[activeContact].avatar + '.jpg'"
+                alt="Contact image"
+              />
               <div class="nav-text d-flex flex-column">
-                <span>Michele</span>
-                <span class="text-muted">Ultimo accesso oggi alle 12:00</span>
+                <span>{{contacts[activeContact].name}}</span>
+                <span class="text-muted">
+                  Ultimo accesso il:
+                  {{contacts[activeContact].messages.slice(-1)[0].date}}
+                </span>
               </div>
             </div>
             <div class="nav-icons">

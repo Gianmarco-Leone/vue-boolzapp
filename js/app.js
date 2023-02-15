@@ -199,6 +199,7 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    // **MILESTONE 2**
     changeContact(index) {
       this.activeContact = index;
     },
