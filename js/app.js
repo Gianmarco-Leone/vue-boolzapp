@@ -194,7 +194,7 @@ const app = Vue.createApp({
           ],
         },
         {
-          name: "Davide",
+          name: "Sofia",
           avatar: "_8",
           visible: true,
           messages: [
