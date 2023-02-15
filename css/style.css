@@ -184,6 +184,34 @@ CHAT SIDE
   align-self: flex-start;
 }
 
+.dropdown-icon {
+  color: #999;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-icon:hover i,
+.dropdown-icon ul li:hover {
+  color: #111;
+}
+
+.my-dropdown {
+  /* display: none; */
+  position: absolute;
+  z-index: 1;
+  right: -30px;
+  width: 100px;
+  padding: 10px 5px;
+  background-color: #fff;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px;
+}
+
+.my-dropdown ul li {
+  cursor: pointer;
+  font-weight: 600;
+}
+
 /* INPUT MESSAGGIO */
 #input_message {
   height: 80px;

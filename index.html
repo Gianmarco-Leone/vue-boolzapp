@@ -154,11 +154,25 @@
             <div class="row justify-content-center pt-4">
               <div class="col-10 d-flex flex-column">
                 <div
-                  v-for="message in contacts[activeContact].messages"
-                  class="message rounded"
+                  v-for="(message, index) in contacts[activeContact].messages"
+                  class="message rounded d-flex justify-content-between"
                   :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
                 >
                   <span>{{message.text}}</span>
+                  <div class="ms-3 dropdown-icon">
+                    <span class="d-block text-end">
+                      <i
+                        @click="dropMessage(index)"
+                        class="fa-solid fa-chevron-down"
+                      ></i>
+                    </span>
+                    <div v-show="message.dropdown" class="my-dropdown">
+                      <ul class="p-0">
+                        <li class="my-3">Message info</li>
+                        <li @click="deleteMessage(index)">Delete message</li>
+                      </ul>
+                    </div>
+                  </div>
                   <span class="time-message">{{message.date}}</span>
                 </div>
               </div>
