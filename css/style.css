@@ -118,6 +118,10 @@ COMMAND SIDE
   position: relative;
 }
 
+#contacts li:hover {
+  background-color: #eee;
+}
+
 .contact-id img {
   border-radius: 50px;
   margin-right: 0.5rem;
@@ -190,12 +194,12 @@ CHAT SIDE
 
 .dropdown-icon {
   color: #999;
-  cursor: pointer;
   position: relative;
 }
 
 .dropdown-icon:hover i,
 .dropdown-icon ul li:hover {
+  cursor: pointer;
   color: #111;
 }
 
