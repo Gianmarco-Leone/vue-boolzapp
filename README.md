@@ -28,3 +28,10 @@ _Svolgimento suddiviso in più Milestone:_
 - ## MILESTONE 5 (opzionale):
   - Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
   - Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+
+---
+
+## BONUS (opzionali)
+
+- ### Bonus 1:
+  _Aggiungere un controllo per evitare che l'utente possa inviare un messaggio vuoto o composto solamente da spazi_

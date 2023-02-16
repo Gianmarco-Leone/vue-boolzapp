@@ -247,7 +247,10 @@ const app = Vue.createApp({
       };
 
       // Aggiungo il nuovo messaggio all'array dei messaggi del contatto solo se nell'input c'è scritto qualcosa
-      if (this.newEnterMessageText.length > 0) {
+      if (
+        this.newEnterMessageText.length > 0 &&
+        this.newEnterMessageText.trim()
+      ) {
         this.contacts[this.activeContact].messages.push(newEnterMessage);
 
         // Creo funzione per la risposta del contatto dopo un secondo

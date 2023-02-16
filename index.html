@@ -159,7 +159,7 @@
               <div class="col-10 d-flex flex-column">
                 <div
                   v-for="(message, index) in contacts[activeContact].messages"
-                  class="message rounded d-flex justify-content-between"
+                  class="message rounded"
                   :class="(message.status == 'sent') ? ' message-sent' : ' message-received'"
                 >
                   <span>{{message.text}}</span>
