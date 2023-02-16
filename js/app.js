@@ -222,6 +222,15 @@ const app = Vue.createApp({
       newEnterMessageText: "",
       activeContact: 0,
       inputTextSearch: "",
+      listReceivedMessageText: [
+        "Ok",
+        "Si",
+        "Tutto bene, tu?",
+        "Non posso rispondere",
+        "Non ho voglia di parlare",
+        "Non ho capito",
+        "Perfetto",
+      ],
     };
   },
   methods: {
@@ -238,7 +247,7 @@ const app = Vue.createApp({
         .setLocale("it")
         .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
 
-      // Creo variabile nuovo messaggio
+      // Creo variabile nuovo messaggio inviato
       let newEnterMessage = {
         date: now,
         text: this.newEnterMessageText,
@@ -261,10 +270,13 @@ const app = Vue.createApp({
             .setLocale("it")
             .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
 
-          // Creo variabile nuovo messaggio
+          // Creo variabile nuovo messaggio ricevuto
           const newReceivedMessage = {
             date: now,
-            text: "Ok",
+            // Grazie alla funzione che mi ritorna un numero casuale tra un min e un max posso recuperare l'indice casuale dell'array lista di risposte
+            text: this.listReceivedMessageText[
+              this.generateRandomInt(0, this.listReceivedMessageText.length - 1)
+            ],
             status: "received",
             dropdown: false,
           };
@@ -309,6 +321,12 @@ const app = Vue.createApp({
     // Creo funzione che a seconda dell'indice passato come parametro elimina un solo messaggio partendo da quell'indice
     deleteMessage(index) {
       this.contacts[this.activeContact].messages.splice(index, 1);
+    },
+
+    // **BONUS 3**
+    // Funzione per generare numero randomico tra due numeri
+    generateRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
     },
   },
 });
