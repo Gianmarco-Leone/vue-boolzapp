@@ -34,4 +34,8 @@ _Svolgimento suddiviso in più Milestone:_
 ## BONUS (opzionali)
 
 - ### Bonus 1:
+
   _Aggiungere un controllo per evitare che l'utente possa inviare un messaggio vuoto o composto solamente da spazi_
+
+- ### Bonus 2:
+  _Accanto all'input dove scrivere il messaggio, visualizzare, solo nel momento in cui l'input non è vuoto, un'altra icona. Ora sarà possibile inviare il messaggio anche premendo questa icona. Dopo aver inviato il messaggio l'input si svuota e torna l'icona di partenza._

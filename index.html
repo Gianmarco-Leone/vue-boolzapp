@@ -198,8 +198,14 @@
               v-model="newEnterMessageText"
               @keyup.enter="enterMessage()"
             />
-            <span class="input-message-icon">
+            <span
+              v-if="newEnterMessageText == false"
+              class="input-message-icon"
+            >
               <i class="fa-solid fa-microphone"></i>
+            </span>
+            <span v-if="newEnterMessageText.trim()" class="input-message-icon">
+              <i class="fa-solid fa-paper-plane" @click="enterMessage()"></i>
             </span>
           </div>
         </div>
